@@ -31,5 +31,6 @@ int main(int args, char **argv)
 		if (n == '\n') //if it is a new line, append the '\n' at the end of the string.
 			putchar('\n');
 	}
+	
 	return (0);
 }
