@@ -1,23 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cduarte- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/02 09:53:05 by cduarte-          #+#    #+#             */
-/*   Updated: 2020/03/05 12:54:45 by cduarte-         ###   ########.fr       */
+/*   Created: 2020/02/19 13:51:13 by cduarte-          #+#    #+#             */
+/*   Updated: 2020/02/19 13:51:34 by cduarte-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# include <stdlib.h>
-# include <unistd.h>
-# include "libft/libft.h"
-# define BUFF_SIZE 32
-# define MAX_FD 2048
+#include "libft.h"
 
-int		get_next_line(const int fd, char **line);
+char	*ft_strncat(char *dest, char *src, int n)
+{
+	int i;
+	int j;
 
-#endif
+	i = 0;
+	j = 0;
+	while (dest[i] != '\0')
+		i++;
+	while ((src[j] != '\0') && n > 0)
+	{
+		dest[i + j] = src[j];
+		j++;
+		n--;
+	}
+	dest[i + j] = '\0';
+	return (dest);
+}

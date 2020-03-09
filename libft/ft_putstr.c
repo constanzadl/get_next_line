@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cduarte- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/02 09:53:05 by cduarte-          #+#    #+#             */
-/*   Updated: 2020/03/05 12:54:45 by cduarte-         ###   ########.fr       */
+/*   Created: 2020/02/19 15:34:38 by cduarte-          #+#    #+#             */
+/*   Updated: 2020/02/19 15:34:52 by cduarte-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# include <stdlib.h>
-# include <unistd.h>
-# include "libft/libft.h"
-# define BUFF_SIZE 32
-# define MAX_FD 2048
+#include "libft.h"
 
-int		get_next_line(const int fd, char **line);
-
-#endif
+void	ft_putstr(char const *s)
+{
+	if (s)
+	{
+		ft_putstr_fd(s, 1);
+	}
+}

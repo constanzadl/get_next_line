@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cduarte- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/02 09:53:05 by cduarte-          #+#    #+#             */
-/*   Updated: 2020/03/05 12:54:45 by cduarte-         ###   ########.fr       */
+/*   Created: 2020/02/19 14:20:01 by cduarte-          #+#    #+#             */
+/*   Updated: 2020/02/19 14:32:43 by cduarte-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# include <stdlib.h>
-# include <unistd.h>
-# include "libft/libft.h"
-# define BUFF_SIZE 32
-# define MAX_FD 2048
+#include "libft.h"
 
-int		get_next_line(const int fd, char **line);
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
+{
+	char *str;
 
-#endif
+	if (!s)
+		return (NULL);
+	str = ft_strnew(len);
+	if (!str)
+		return (NULL);
+	ft_strncpy(str, s + start, len);
+	return (str);
+}

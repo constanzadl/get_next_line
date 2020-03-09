@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cduarte- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/02 09:53:05 by cduarte-          #+#    #+#             */
-/*   Updated: 2020/03/05 12:54:45 by cduarte-         ###   ########.fr       */
+/*   Created: 2020/02/19 15:59:51 by cduarte-          #+#    #+#             */
+/*   Updated: 2020/02/19 17:01:51 by cduarte-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# include <stdlib.h>
-# include <unistd.h>
-# include "libft/libft.h"
-# define BUFF_SIZE 32
-# define MAX_FD 2048
+#include "libft.h"
 
-int		get_next_line(const int fd, char **line);
+char	*ft_strjoin(char const *s1, char const *s2)
+{
+	char	*str;
+	int		len;
 
-#endif
+	if (!s1 || !s2)
+		return (NULL);
+	len = ft_strlen(s1) + ft_strlen(s2);
+	str = ft_strnew(len);
+	if (!str)
+		return (NULL);
+	str = ft_strcat(str, ((char *)s1));
+	str = ft_strcat(str, ((char *)s2));
+	return (str);
+}

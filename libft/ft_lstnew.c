@@ -1,23 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cduarte- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/02 09:53:05 by cduarte-          #+#    #+#             */
-/*   Updated: 2020/03/05 12:54:45 by cduarte-         ###   ########.fr       */
+/*   Created: 2020/02/21 11:36:40 by cduarte-          #+#    #+#             */
+/*   Updated: 2020/02/21 14:13:49 by cduarte-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# include <stdlib.h>
-# include <unistd.h>
-# include "libft/libft.h"
-# define BUFF_SIZE 32
-# define MAX_FD 2048
+#include "libft.h"
 
-int		get_next_line(const int fd, char **line);
+t_list	*ft_lstnew(void const *content, size_t content_size)
+{
+	t_list *temp;
 
-#endif
+	temp = (t_list*)malloc(sizeof(t_list));
+	if (!(temp))
+		return (NULL);
+	if (!content)
+	{
+		temp->content = NULL;
+		temp->content_size = 0;
+		temp->next = NULL;
+	}
+	else
+	{
+		temp->content = (void*)content;
+		temp->content_size = content_size;
+		temp->next = NULL;
+	}
+	return (temp);
+}

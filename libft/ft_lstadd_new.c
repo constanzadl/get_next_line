@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_lstadd_new.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cduarte- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/02 09:53:05 by cduarte-          #+#    #+#             */
-/*   Updated: 2020/03/05 12:54:45 by cduarte-         ###   ########.fr       */
+/*   Created: 2020/02/21 19:33:46 by cduarte-          #+#    #+#             */
+/*   Updated: 2020/02/21 19:35:29 by cduarte-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# include <stdlib.h>
-# include <unistd.h>
-# include "libft/libft.h"
-# define BUFF_SIZE 32
-# define MAX_FD 2048
+#include "libft.h"
 
-int		get_next_line(const int fd, char **line);
+void	ft_lstadd_new(t_list **alst, t_list *new)
+{
+	t_list *temp;
 
-#endif
+	if (alst)
+	{
+		if (!*alst)
+			*alst = ft_lstnew(new->content, new->content_size);
+		else
+		{
+			temp = *alst;
+			while (temp->next != NULL)
+				temp = temp->next;
+			temp->next = ft_lstnew(new->content, new->content_size);
+		}
+	}
+}

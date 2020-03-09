@@ -1,23 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cduarte- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/02 09:53:05 by cduarte-          #+#    #+#             */
-/*   Updated: 2020/03/05 12:54:45 by cduarte-         ###   ########.fr       */
+/*   Created: 2020/02/19 16:17:38 by cduarte-          #+#    #+#             */
+/*   Updated: 2020/02/20 08:50:14 by cduarte-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# include <stdlib.h>
-# include <unistd.h>
-# include "libft/libft.h"
-# define BUFF_SIZE 32
-# define MAX_FD 2048
+#include "libft.h"
 
-int		get_next_line(const int fd, char **line);
+char	*ft_strstr(const char *h, const char *n)
+{
+	int i;
+	int j;
 
-#endif
+	i = 0;
+	if (!*n)
+		return ((char *)h);
+	while (h[i])
+	{
+		j = 0;
+		while (n[j] && h[i + j] && h[i + j] == n[j])
+			j++;
+		if (!n[j])
+			return ((char *)(h + i));
+		i++;
+	}
+	return (NULL);
+}

@@ -1,23 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cduarte- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/02 09:53:05 by cduarte-          #+#    #+#             */
-/*   Updated: 2020/03/05 12:54:45 by cduarte-         ###   ########.fr       */
+/*   Created: 2020/02/19 14:09:50 by cduarte-          #+#    #+#             */
+/*   Updated: 2020/02/20 17:56:17 by cduarte-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# include <stdlib.h>
-# include <unistd.h>
-# include "libft/libft.h"
-# define BUFF_SIZE 32
-# define MAX_FD 2048
+#include "libft.h"
 
-int		get_next_line(const int fd, char **line);
+char	*ft_strnstr(const char *h, const char *n, size_t len)
+{
+	int i;
+	int j;
+	int len_cpy;
 
-#endif
+	i = 0;
+	if (!*n)
+		return ((char *)h);
+	while (h[i] && len)
+	{
+		j = 0;
+		len_cpy = len;
+		while (h[i + j] && h[i + j] == n[j] && len_cpy)
+		{
+			j++;
+			len_cpy--;
+		}
+		if (!n[j])
+			return ((char *)(h + i));
+		i++;
+		len--;
+	}
+	return (NULL);
+}
